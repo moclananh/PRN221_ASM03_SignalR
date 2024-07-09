@@ -1,0 +1,66 @@
+﻿@model IEnumerable<PRN221_Assignment03.Models.Post>
+@{
+    ViewData["Title"] = "ThongKe";
+}
+
+@using Microsoft.AspNetCore.Http;
+
+
+
+<h1 class="text-center" style="padding-bottom: 12px; color:brown">A report statistics sales</h1>
+<div class="row" style="width: 90%; margin: 0 auto">
+
+
+    <div class="table-responsive col-9" style="width:80%; margin: 0 auto; margin-bottom: 24px">
+        <table class="table e-commerce-table table-hover">
+            <thead>
+                <tr style="border-width: 2px; text-align: center">
+                    <th>
+                        Post ID
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        User
+                    </th>
+                    <th>
+                        Category
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    dynamic sum = 0;
+                    foreach (var item in Model)
+                    {
+
+                        if (DateTime.Parse(@Context.Session.GetString("StartDate")) <= item.CreatedDate && DateTime.Parse(@Context.Session.GetString("EndDate")) >= item.CreatedDate)
+                        {
+
+                            <tr class="text-center">
+                                <td style="border-width: 2px">
+                                    @Html.DisplayFor(modelItem => item.PostId)
+                                </td>
+                                <td style="border-width: 2px">
+                                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                                </td>
+                                <td style="border-width: 2px">
+                                   @Html.DisplayFor(modelItem => item.AuthorId)
+                                </td>
+                                <td style="border-width: 2px">
+                                    @Html.DisplayFor(modelItem => item.CategoryId)
+                                </td>   
+                            </tr>
+                        }
+
+                    }
+
+                    double x = (double)sum;
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

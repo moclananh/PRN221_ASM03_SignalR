@@ -1,0 +1,28 @@
+﻿@model IEnumerable<PRN221_Assignment03.Models.Post>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table" id="example">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Created Date</th>
+            <th>Updated Date</th>
+            <th>Author</th>
+            <th>Category</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+   
+    <tbody id="tableBody"></tbody>
+   
+</table>

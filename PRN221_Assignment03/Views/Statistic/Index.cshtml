@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-8" style="margin: 0 auto">
+        <h1 class="text-center" style="color:brown">Search Start Date and End Date To Statistic</h1>
+        <form asp-action="ThongKe">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Start Date</label>
+                <input class="form-control" type="datetime-local" name="startDate" />
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">End Date</label>
+                <input class="form-control" type="datetime-local" name="endDate" />
+                <span class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Search" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
